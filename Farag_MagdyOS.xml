@@ -37,11 +37,19 @@
               <REFERENCE-VALUES>
                 <ECUC-REFERENCE-VALUE>
                   <SHORT-NAME>OsTaskEventRef</SHORT-NAME>
-                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsEvent"</VALUE-REF>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Ev1"</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <SHORT-NAME>OsTaskEventRef</SHORT-NAME>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\EV2"</VALUE-REF>
                 </ECUC-REFERENCE-VALUE>
                 <ECUC-REFERENCE-VALUE>
                   <SHORT-NAME>OsTaskResourceRef</SHORT-NAME>
-                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsResource"</VALUE-REF>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Res1"</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <SHORT-NAME>OsTaskResourceRef</SHORT-NAME>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Res2"</VALUE-REF>
                 </ECUC-REFERENCE-VALUE>
               </REFERENCE-VALUES>
             </ECUC-CONTAINER-VALUE>
@@ -76,11 +84,11 @@
               <REFERENCE-VALUES>
                 <ECUC-REFERENCE-VALUE>
                   <SHORT-NAME>OsTaskEventRef</SHORT-NAME>
-                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsEvent"</VALUE-REF>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Ev2"</VALUE-REF>
                 </ECUC-REFERENCE-VALUE>
                 <ECUC-REFERENCE-VALUE>
                   <SHORT-NAME>OsTaskResourceRef</SHORT-NAME>
-                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsResource"</VALUE-REF>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Res2"</VALUE-REF>
                 </ECUC-REFERENCE-VALUE>
               </REFERENCE-VALUES>
             </ECUC-CONTAINER-VALUE>
@@ -141,11 +149,19 @@
                   <SHORT-NAME>AUTOSTART</SHORT-NAME>
                   <VALUE>TRUE</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <SHORT-NAME>Alarm Time</SHORT-NAME>
+                  <VALUE>400</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <SHORT-NAME>Cycle Time</SHORT-NAME>
+                  <VALUE>3</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
               </PARAMETER-VALUES>
               <REFERENCE-VALUES>
                 <ECUC-REFERENCE-VALUE>
                   <SHORT-NAME>OsAlarmCounterRef</SHORT-NAME>
-                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsCounter"</VALUE-REF>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\C1"</VALUE-REF>
                 </ECUC-REFERENCE-VALUE>
               </REFERENCE-VALUES>
               <SUB-CONTAINERS>
@@ -157,7 +173,7 @@
                       <REFERENCE-VALUES>
                         <ECUC-REFERENCE-VALUE>
                           <SHORT-NAME>OsAlarmActivateTaskRef</SHORT-NAME>
-                          <VALUE-REF>DEST= "AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsTask"</VALUE-REF>
+                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\T1"</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                       </REFERENCE-VALUES>
                     </ECUC-CONTAINER-VALUE>
@@ -175,11 +191,11 @@
                       <REFERENCE-VALUES>
                         <ECUC-REFERENCE-VALUE>
                           <SHORT-NAME>OsAlarmSetEventRef</SHORT-NAME>
-                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsEvent"</VALUE-REF>
+                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\T1"</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <SHORT-NAME>OsAlarmSetEventTaskRef</SHORT-NAME>
-                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsTask"</VALUE-REF>
+                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Ev1"</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                       </REFERENCE-VALUES>
                     </ECUC-CONTAINER-VALUE>
@@ -192,13 +208,21 @@
               <PARAMETER-VALUES>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <SHORT-NAME>AUTOSTART</SHORT-NAME>
-                  <VALUE>False</VALUE>
+                  <VALUE>FALSE</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <SHORT-NAME>Alarm Time</SHORT-NAME>
+                  <VALUE>250</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <SHORT-NAME>Cycle Time</SHORT-NAME>
+                  <VALUE>2</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
               </PARAMETER-VALUES>
               <REFERENCE-VALUES>
                 <ECUC-REFERENCE-VALUE>
                   <SHORT-NAME>OsAlarmCounterRef</SHORT-NAME>
-                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsCounter"</VALUE-REF>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\C2"</VALUE-REF>
                 </ECUC-REFERENCE-VALUE>
               </REFERENCE-VALUES>
               <SUB-CONTAINERS>
@@ -210,7 +234,7 @@
                       <REFERENCE-VALUES>
                         <ECUC-REFERENCE-VALUE>
                           <SHORT-NAME>OsAlarmActivateTaskRef</SHORT-NAME>
-                          <VALUE-REF>DEST= "AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsTask"</VALUE-REF>
+                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\T2"</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                       </REFERENCE-VALUES>
                     </ECUC-CONTAINER-VALUE>
@@ -219,7 +243,7 @@
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
                           <SHORT-NAME>OsAlarmCallbackName</SHORT-NAME>
-                          <VALUE>0</VALUE>
+                          <VALUE>FUNCTION_NAME</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
@@ -228,11 +252,11 @@
                       <REFERENCE-VALUES>
                         <ECUC-REFERENCE-VALUE>
                           <SHORT-NAME>OsAlarmSetEventRef</SHORT-NAME>
-                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsEvent"</VALUE-REF>
+                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\T2"</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                         <ECUC-REFERENCE-VALUE>
                           <SHORT-NAME>OsAlarmSetEventTaskRef</SHORT-NAME>
-                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsTask"</VALUE-REF>
+                          <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Ev2"</VALUE-REF>
                         </ECUC-REFERENCE-VALUE>
                       </REFERENCE-VALUES>
                     </ECUC-CONTAINER-VALUE>
@@ -285,30 +309,30 @@
             <ECUC-CONTAINER-VALUE>
               <SHORT-NAME>ISR1OsISR</SHORT-NAME>
               <PARAMETER-VALUES>
-                <ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM>
                   <SHORT-NAME>OsIsrCategory</SHORT-NAME>
                   <VALUE>CATEGORY_1</VALUE>
-                </ECUC-TEXTUAL-PARAM-VALUE>
+                </ECUC-TEXTUAL-PARAM>
               </PARAMETER-VALUES>
               <REFERENCE-VALUES>
                 <ECUC-REFERENCE-VALUE>
                   <SHORT-NAME>OsIsrResourceRef</SHORT-NAME>
-                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsResource"</VALUE-REF>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Res1"</VALUE-REF>
                 </ECUC-REFERENCE-VALUE>
               </REFERENCE-VALUES>
             </ECUC-CONTAINER-VALUE>
             <ECUC-CONTAINER-VALUE>
               <SHORT-NAME>ISR2OsISR</SHORT-NAME>
               <PARAMETER-VALUES>
-                <ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM>
                   <SHORT-NAME>OsIsrCategory</SHORT-NAME>
                   <VALUE>CATEGORY_2</VALUE>
-                </ECUC-TEXTUAL-PARAM-VALUE>
+                </ECUC-TEXTUAL-PARAM>
               </PARAMETER-VALUES>
               <REFERENCE-VALUES>
                 <ECUC-REFERENCE-VALUE>
                   <SHORT-NAME>OsIsrResourceRef</SHORT-NAME>
-                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\OsResource"</VALUE-REF>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Res2"</VALUE-REF>
                 </ECUC-REFERENCE-VALUE>
               </REFERENCE-VALUES>
             </ECUC-CONTAINER-VALUE>

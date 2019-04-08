@@ -7,55 +7,79 @@
           <SHORT-NAME>Os</SHORT-NAME>
           <CONTAINERS>
             <ECUC-CONTAINER-VALUE>
-              <SHORT-NAME>E1OsEvent</SHORT-NAME>
+              <SHORT-NAME>T1OsTask</SHORT-NAME>
               <PARAMETER-VALUES>
                 <ECUC-NUMERICAL-PARAM-VALUE>
-                  <SHORT-NAME>OsEventMask</SHORT-NAME>
-                  <VALUE>300</VALUE>
-                </ECUC-NUMERICAL-PARAM-VALUE>
-              </PARAMETER-VALUES>
-            </ECUC-CONTAINER-VALUE>
-            <ECUC-CONTAINER-VALUE>
-              <SHORT-NAME>E3OsEvent</SHORT-NAME>
-              <PARAMETER-VALUES>
-                <ECUC-NUMERICAL-PARAM-VALUE>
-                  <SHORT-NAME>OsEventMask</SHORT-NAME>
-                  <VALUE>300</VALUE>
-                </ECUC-NUMERICAL-PARAM-VALUE>
-              </PARAMETER-VALUES>
-            </ECUC-CONTAINER-VALUE>
-            <ECUC-CONTAINER-VALUE>
-              <SHORT-NAME>counter1OsCounter</SHORT-NAME>
-              <PARAMETER-VALUES>
-                <ECUC-TEXTUAL-PARAM-VALUE>
-                  <SHORT-NAME>OsCounterType</SHORT-NAME>
-                  <VALUE>HARDWARE</VALUE>
-                </ECUC-TEXTUAL-PARAM-VALUE>
-                <ECUC-NUMERICAL-PARAM-VALUE>
-                  <SHORT-NAME>OsSecondsPerTick</SHORT-NAME>
-                  <VALUE>1e-09</VALUE>
+                  <SHORT-NAME>OsTaskPriority</SHORT-NAME>
+                  <VALUE>3</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
-                  <SHORT-NAME>OsCounterMaxAllowedValue</SHORT-NAME>
-                  <VALUE>65535</VALUE>
-                </ECUC-NUMERICAL-PARAM-VALUE>
-                <ECUC-NUMERICAL-PARAM-VALUE>
-                  <SHORT-NAME>OsCounterTicksPerBase</SHORT-NAME>
+                  <SHORT-NAME>OsTaskActivation</SHORT-NAME>
                   <VALUE>1</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
-                  <SHORT-NAME>OsCounterMinCycle</SHORT-NAME>
-                  <VALUE>0</VALUE>
+                  <SHORT-NAME>OsTaskSize</SHORT-NAME>
+                  <VALUE>128</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <SHORT-NAME>OsTaskSchedule</SHORT-NAME>
+                  <VALUE>FULL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <SHORT-NAME>OsTaskType</SHORT-NAME>
+                  <VALUE>EXTENDED</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <SHORT-NAME>OsTaskAutostart</SHORT-NAME>
+                  <VALUE>TRUE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
               </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <SHORT-NAME>OsTaskEventRef</SHORT-NAME>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Ev1"</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <SHORT-NAME>OsTaskEventRef</SHORT-NAME>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\EV2"</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <SHORT-NAME>OsTaskResourceRef</SHORT-NAME>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Res1"</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+                <ECUC-REFERENCE-VALUE>
+                  <SHORT-NAME>OsTaskResourceRef</SHORT-NAME>
+                  <VALUE-REF>DEST="AUTOSAR\AR-PACKAGES\AR-PACKAGE\ELEMENTS\ECUC-MODULE-CONFIGURATION-VALUES\Res2"</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
             </ECUC-CONTAINER-VALUE>
             <ECUC-CONTAINER-VALUE>
-              <SHORT-NAME>E4OsEvent</SHORT-NAME>
+              <SHORT-NAME>T2OsTask</SHORT-NAME>
               <PARAMETER-VALUES>
                 <ECUC-NUMERICAL-PARAM-VALUE>
-                  <SHORT-NAME>OsEventMask</SHORT-NAME>
-                  <VALUE>300</VALUE>
+                  <SHORT-NAME>OsTaskPriority</SHORT-NAME>
+                  <VALUE>2</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <SHORT-NAME>OsTaskActivation</SHORT-NAME>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <SHORT-NAME>OsTaskSize</SHORT-NAME>
+                  <VALUE>128</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <SHORT-NAME>OsTaskSchedule</SHORT-NAME>
+                  <VALUE>FULL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <SHORT-NAME>OsTaskType</SHORT-NAME>
+                  <VALUE>BASIC</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <SHORT-NAME>OsTaskAutostart</SHORT-NAME>
+                  <VALUE>FALSE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
               </PARAMETER-VALUES>
             </ECUC-CONTAINER-VALUE>
           </CONTAINERS>

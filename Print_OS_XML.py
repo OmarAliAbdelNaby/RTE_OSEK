@@ -22,11 +22,21 @@ def indent(elem, level=0):
 
 
 class CreateArxml:
+    '''
     tree = ET.ElementTree
     directory = ''
-
     def __init__(self, directory):
         self.directory = directory
+
+
+
+    '''
+    tree = ET.parse
+
+    def __init__(self, XmlFilePath):
+        self.tree = ET.parse(XmlFilePath)
+
+
 
     def CreateDefaultARXML(self):
         ET.register_namespace("", autosar_schema_instance)
@@ -780,7 +790,7 @@ if __name__ == '__main__':
 
     #task = [Task_Name , priortity, schedule ,Activation , Autostart , type , size,NumOfEvRef,NumOfResRef]
     task1 = ['T1', 3, 'FULL', 1, 'TRUE', 'EXTENDED', 128, 2, 3, ['Ev1', 'EV2'], ['Res1', 'Res2', 'Null']]
-    task2 = ['T2', 2, 'FULL', 1, 'FALSE', 'EXTENDED', 128, 1, 1, ['Ev2'], ['Res2']]
+    task2 = ['T2', 2, 'FULL', 1, 'FALSE', 'BASIC', 128, 1, 1, ['Ev2'], ['Res2']]
 
     #COUNTER_NAWAF[0, 65535, 7, 128]
     #counter1 = [counter_name',type_of_counter,OsSecondsPerTick, OsCounterMaxAllowedValue,OsCounterTicksPerBase,OsCounterMinCycle]
@@ -800,11 +810,13 @@ if __name__ == '__main__':
     Isr1 = ["ISR1", "CATEGORY_1", "Res1"]
     Isr2 = ["ISR2", "CATEGORY_2", "Res2"]
 
-    NewXML = CreateArxml('Farag_MagdyOS.xml')
+    global NewXML
+    NewXML = CreateArxml('Ga3foor.xml')
     NewXML.CreateDefaultARXML()
     NewXML.CreateOS('ActiveEcuC')
     NewXML.AddTask(task1)
     NewXML.AddTask(task2)
+    '''
     NewXML.AddCounter(counter1)
     NewXML.AddCounter(counter2)
     NewXML.AddAlarm(alarm1)
@@ -826,3 +838,4 @@ if __name__ == '__main__':
     print(parsexml.GetResourceList())
     print(parsexml.GetAlarmList())
     print(parsexml.GetISRList())
+'''
