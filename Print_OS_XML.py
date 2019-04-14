@@ -22,7 +22,7 @@ def indent(elem, level=0):
 
 
 class CreateArxml:
-    '''
+
     tree = ET.ElementTree
     directory = ''
     def __init__(self, directory):
@@ -36,7 +36,7 @@ class CreateArxml:
     def __init__(self, XmlFilePath):
         self.tree = ET.parse(XmlFilePath)
 
-
+    '''
 
     def CreateDefaultARXML(self):
         ET.register_namespace("", autosar_schema_instance)

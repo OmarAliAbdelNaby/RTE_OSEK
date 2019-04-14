@@ -73,11 +73,14 @@ print(c1.Get_Triggers())
 #print (parsexml.GetTaskList())
 
 NewXML = CreateArxml ( 'Ga3foor.xml' )
-#NewXML.CreateOS ( 'ActiveEcuC' )
+NewXML.CreateOS ( 'ActiveEcuC' )
 
-#for everyTask in taskListAll:
-#    print(everyTask)
-#    NewXML.AddTask(everyTask)
+for everyTask in taskListAll:
+    print(everyTask)
+
+    newTask = [everyTask[0], everyTask[1], everyTask[4], everyTask[2], everyTask[6], everyTask[5], everyTask[3], everyTask[7], everyTask[8], everyTask[9], everyTask[10]]
+    print(newTask)
+    NewXML.AddTask(newTask)
 
 #------------------- Init Triggers ---------------
 for everyDict in c1.Get_Triggers()[0]:
@@ -102,7 +105,7 @@ for everyDict in c1.Get_Triggers()[1]:
     #NewXML.AddAlarm([alarmName, "TRUE", alarmTime, "NULL", counterName, "NULL", "SETEVENT", specTask, eventName]) #alarmTime is out of scale
     NewXML.AddAlarm([alarmName, "TRUE", alarmTime, "NULL", counterName, specTask, "SETEVENT", specTask, eventName])
     RunSynchDict[specTask].append(alarmTime)
-#---------------------------------------------------
+
 #------------------- operation Invoked Triggers ----------
 for everyDict in c1.Get_Triggers()[3]:
     eventName = "RTE_Event_" +  list(everyDict.keys())[0]
