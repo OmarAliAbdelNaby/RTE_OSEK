@@ -1,5 +1,5 @@
 from Print_OS_XML import *
-
+from RTE_OS import *
 Head = "/* This file is Auto-Generated to configure the AUTOSAR OS */\n\n\n"
 gcfg = "\n/************************** GENERAL CONFIGURATION ***************************/\n"
 tcfg = "\n/**************************** TASK CONFIGURATION ****************************/"
@@ -26,12 +26,12 @@ class OsGenerator:
             self.configOs.write("\n#define OSTICKDURATION\t\t\t\t\t" + "1000")
             self.configOs.write("\n#define NUMBER_OF_EXTENDEDTASK\t\t\t" +  str(General_config[0]))
             self.configOs.write("\n#define NUMBER_OF_BASICTASK\t\t\t\t"  +  str(General_config[1]))
-            self.configOs.write("\n#define NUMBER_OF_PRIORITES\t\t\t\t"  +  str(General_config[0]))
-            self.configOs.write("\n#define NUMBER_OF_EVENTS\t\t\t\t"     +  str(General_config[2]))
-            self.configOs.write("\n#define NUMBER_OF_RESOURCES\t\t\t\t"  +  str(General_config[3]))
-            self.configOs.write("\n#define NUMBER_OF_COUNTER\t\t\t\t"    +  str(General_config[4]))
-            self.configOs.write("\n#define NUMBER_OF_ALARM\t\t\t\t\t"    +  str(General_config[5]))
-            self.configOs.write("\n#define NUMBER_OF_ISR\t\t\t\t\t"      +  str(General_config[6]))
+            self.configOs.write("\n#define NUMBER_OF_PRIORITES\t\t\t\t"  +  str(General_config[2]))
+            self.configOs.write("\n#define NUMBER_OF_EVENTS\t\t\t\t"     +  str(General_config[3]))
+            self.configOs.write("\n#define NUMBER_OF_RESOURCES\t\t\t\t"  +  str(General_config[4]))
+            self.configOs.write("\n#define NUMBER_OF_COUNTER\t\t\t\t"    +  str(General_config[5]))
+            self.configOs.write("\n#define NUMBER_OF_ALARM\t\t\t\t\t"    +  str(General_config[6]))
+            self.configOs.write("\n#define NUMBER_OF_ISR\t\t\t\t\t"      +  str(General_config[7]))
             self.configOs.write("\n#define NUMBER_OF_CALLBACK_FUNCTION\t\t" + "0")
             self.configOs.write("\n\n#define ALARM_CALLBACK\t\t\t\t\t" + "0")
             self.configOs.write("\n#define IDLETASK_STACK_SIZE\t\t\t\t" + "128")
@@ -46,6 +46,7 @@ class OsGenerator:
         with open(self.FileName, mode="a") as self.configOs:
             self.configOs.write(tcfg)
             for Task in Taskvalues:
+                print(Task)
                 tID += 1
 
                 self.configOs.write("\n\n#define OS_TASK_NAME_" + str(tID) + "\t\t\t\t\t" + Task[0])
@@ -77,7 +78,10 @@ class OsGenerator:
         aID = 0  # ID Alarm
         with open(self.FileName, mode="a") as self.configOs:
             self.configOs.write(acfg)
+
             for alarm in AlarmList:
+                print(alarm)
+                print(len(alarm))
                 aID += 1
                 self.configOs.write("\n\n#define OS_ALARM_NAME_" + str(aID) +  "\t\t\t\t\t" + alarm[0])
                 self.configOs.write("\n#define AUTOSTART_" + str(aID) + "\t\t\t\t\t\t" + alarm[1])
@@ -85,9 +89,9 @@ class OsGenerator:
                 self.configOs.write("\n#define CYCLE_TIME_" + str(aID) +  "\t\t\t\t\t" + alarm[3])
                 self.configOs.write("\n#define OS_ALARM_COUNTER_REF_" + str(aID) + "\t\t\t" + alarm[4])
                 self.configOs.write("\n#define OS_ALARM_ACTIVATE_TASK_REF_" + str(aID) +  "\t" + alarm[5])
-                self.configOs.write("\n#define OS_ALARM_CALLBACK_NAME_" + str(aID) + "\t\t" + alarm[8])
-                self.configOs.write("\n#define OS_ALARM_SET_EVENT_REF_" + str(aID) +  "\t\t" + alarm[7])
-                self.configOs.write("\n#define OS_ALARM_SET_EVENT_TASK_REF_" + str(aID) +  "\t" + alarm[6])
+                #self.configOs.write("\n#define OS_ALARM_CALLBACK_NAME_" + str(aID) + "\t\t" + alarm[6])
+                self.configOs.write("\n#define OS_ALARM_SET_EVENT_REF_" + str(aID) +  "\t\t" + alarm[8])
+                self.configOs.write("\n#define OS_ALARM_SET_EVENT_TASK_REF_" + str(aID) +  "\t" + alarm[7])
                 # self.configOs.write("\n#define ALARM_ACTION_CALLBACK_FUNC_" + str(aID) + "\t\t" + alarm[9])
 
     def Counter_Config_H_(self):
@@ -145,8 +149,8 @@ class OsGenerator:
 
 if __name__ == '__main__':
 
-    newfile = OsGenerator("Farag_MagdyOS.xml", "Farag_Magdy.h")
-    #newfile.GenerateGeneral_Config_H_()
+    newfile = OsGenerator("Ga3foor.xml", "Ga3foor.h")
+    newfile.GenerateGeneral_Config_H_(generalConfigList)
     newfile.Task_Config_H_()
     newfile.Alarm_Config_H_()
     newfile.Counter_Config_H_()
