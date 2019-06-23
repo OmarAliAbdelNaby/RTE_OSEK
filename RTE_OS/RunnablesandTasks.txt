@@ -1,0 +1,1 @@
+{"HeatRegulatorRunnable": ["T1", 1], "SeatHeaterRunnable": ["T1", 1], "UpdateHeating": ["T1", 1], "SeatSensorRunnableLeft": ["T1", 1], "SeatSensorRunnableRight": ["T1", 1]}
