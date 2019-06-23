@@ -55,20 +55,20 @@ for element in taskListAll:
 allTriggers = []
 allRunnables = []
 
-path = 'C:\\Users\OmarAli\PycharmProjects\RTE_OS\SWCs'
+path = 'E:\\Projects\RTE_OSEK-master\RTE_OS\SWCs'
 for filename in os.listdir(path):
     if not filename.endswith('.arxml'): continue
     fullname = os.path.join(path, filename)
     c1 = Component(fullname)
-    print(fullname)
+    #print(fullname)
     listRunnables = list(c1.Get_Runnables().keys())
     allRunnables.append(listRunnables)
     allTriggers.append(c1.Get_Triggers())
-    print(listRunnables)
-    print(c1.Get_Triggers())
+    #print(listRunnables)
+    #print(c1.Get_Triggers())
 
-print(allRunnables)
-print(allTriggers)
+#print(allRunnables)
+#print(allTriggers)
 #--------------------------------------------------
 
 #--------------------------------------------------
@@ -87,7 +87,7 @@ Task2RunDict = mapping(oldTask2RunDict)
 RunSynchDict = dict((el, []) for el in taskList)
 #Task2RunDict['T1'] = ['HeatRegulatorRunnable', 'SeatHeaterRunnable', 'UpdateHeating']
 #Task2RunDict['T2'] = ['SeatSensorRunnableLeft', 'SeatSensorRunnableRight']
-print(Task2RunDict)
+#print(Task2RunDict)
 #
 #--------------------------------------------------
 
@@ -181,18 +181,16 @@ for everyListTriggers in allTriggers:
             counterName = (cnt-1).__str__() #"RTE_Counter_counter" + cnt.__str__()
             #NewXML.AddCounter([counterName, 'HARDWARE' , 0.000000001 , 65535 , 1 , 0])   #ns   #ms
             counterLists.append([counterName, 'HARDWARE' , 0.000000001 , 65535 , 1 , 0])
-            print([counterName, 'HARDWARE' , 0.000000001 , 65535 , 1 , 0])
+            #print([counterName, 'HARDWARE' , 0.000000001 , 65535 , 1 , 0])
         alarmTime = list(everyDict.values())[0][0]
 
         for task, runnables in Task2RunDict.items():
             for everyRunnable in runnables:
                 if everyRunnable == list(everyDict.values())[0][1]:
                     specTask = task
-        #alarmTime is the cycleTime
-        #NewXML.AddAlarm([alarmName, "TRUE", alarmTime, "NULL", counterName, "NULL", "SETEVENT", specTask, eventName]) #alarmTime is out of scale
-        #NewXML.AddAlarm([alarmName, "TRUE", 400, alarmTime, counterName, specTask, "SETEVENT", specTask, eventName])
+
         alarmLists.append([alarmName, "TRUE", "NULL", alarmTime, counterName, specTask, "SETEVENT", specTask, eventName])
-        print([alarmName, "TRUE", 400, alarmTime, counterName, specTask, "SETEVENT", specTask, eventName])
+        #print([alarmName, "TRUE", 400, alarmTime, counterName, specTask, "SETEVENT", specTask, eventName])
         RunSynchDict[specTask].append(alarmTime)
 #-------------------------------------------------
 
@@ -225,8 +223,58 @@ for everyCounter in counterLists:
 for everyAlarm in alarmLists:
     NewXML.AddAlarm(everyAlarm)
 
-AlarmList = parsexml2.GetAlarmList()
-print(AlarmList)
+def tasksGenerator(oldDictionary):
 
-CounterList = parsexml2.GetCounterList()
-print(CounterList)
+    f = open("taskBodies.c", "r+")
+
+    eventsListAll = []
+    for everyTask in taskList:
+        f.write("DeclareTask(" + everyTask + ");\n")
+        eventsListAll.append(getTaskEvents(everyTask))
+
+    f.write("\n")
+
+    for everyEventList in eventsListAll:
+        for everyEvent in everyEventList:
+            f.write("DeclareEvent(" + everyEvent + ");\n")
+
+    f.write("\n")
+
+    for everyTask in taskList:
+        f.write("TASK(" + everyTask + ")\n")
+        f.write("{\n")
+        f.write("\tEventMaskType NewEvent;\n")
+        f.write("\twhile(true)\n\t{\n")
+        f.write("\t\tWaitEvent(")
+        events = getTaskEvents(everyTask)
+        for everyEvent in events:
+            if everyEvent == events[len(events) - 1]:
+                f.write(everyEvent.__str__() + ");\n")
+            else:
+                f.write(everyEvent.__str__() + " | ")
+        f.write("\t\tGetEvent(" + everyTask + ", &NewEvent);\n")
+        f.write("\t\tClearEvent(NewEvent);\n")
+        # f.write("if(NewEvent &" +  + ")")
+        for task, runnables in Task2RunDict.items():
+            if (task == everyTask):
+                orderedRunnables = list((el) for el in runnables)
+                for everyRunnable in runnables:
+                    #print(runnables)
+                    position = oldDictionary[everyRunnable][1]
+                    #print(everyRunnable, position)
+                    orderedRunnables[position - 1] = everyRunnable
+
+                #print(orderedRunnables)
+                for everyRunnable in orderedRunnables:
+                    eventName = getRunnableEvent(everyRunnable)
+                    f.write("\t\tif(NewEvent & " + eventName.__str__() + ")\n\t\t{\n\t\t\t")
+                    f.write(everyRunnable + "();\n\t\t}\n")
+        f.write("\t\tTerminateTask();\n\t}\n}\n")
+
+    #print(f.read())
+    f.close()
+    f1 = open("taskBodies.c", "r+")
+    return f1.read()
+
+#print(oldTask2RunDict)
+taskBodyString = tasksGenerator(oldTask2RunDict)
